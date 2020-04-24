@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+         <div id="app">
+         	<p v-for="num in 10">{{num}}</p>
+			<!-- num 是从1开始循环的 -->
+         	<p v-for="(num,i) in 10">{{num}}--->索引{{i}}</p>
+			
+         </div>
+		 <script type="text/javascript">
+		 	var vm=new Vue({
+				el:'#app',
+				data:{
+				}
+			})
+		 </script>
+	</body>
+</html>

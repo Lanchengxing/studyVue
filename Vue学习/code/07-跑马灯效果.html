@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="开始" v-on:click="start" />
+			<input type="button" value="结束" @click="stop" />
+			<p>{{msg}}</p>
+		</div>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: '猥琐发育，别浪！！！' ,
+					timer: null ,
+				},
+                methods:{
+					start(){
+						if(this.timer!=null){
+							return;
+						}
+						this.timer=setInterval(()=>{
+							var s=this.msg.substring(0,1);
+							var end=this.msg.substring(1);
+							this.msg=end+s;
+						},300);
+					},
+					stop:function(){
+						clearInterval(this.timer);
+						this.timer=null;
+					}
+					
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style>
+		.outer{
+			width: 400px;
+			height: 400px;
+			background-color: gray;		
+		}
+		.inner{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+		
+	</style>
+	<body>
+		<div id="app">
+			<p>阻止冒泡</p>
+			<div class="outer" @click="outer">
+				<div class="inner" @click="inner">
+					<!-- .stop 阻止冒泡 -->
+					<button type="button" @click.stop="btn">戳我</button>
+				</div>
+			</div>
+			<p>阻止默认行为</p>
+			<!-- .prevent 阻止默认行为 -->
+			<a href="http://www.baidu.com" @click.prevent="link">点我去百度</a>
+
+             <p>捕获触发事件的机制,由当前到里</p>
+			<!-- .capture 实现捕获触发事件的机制,由当前到里 -->
+			<div class="inner" @click.capture="inner">
+				<button type="button" @click="btn">戳我</button>
+			</div>
+			<hr />
+			
+			<p>.self 实现只有点击当前元素时候，才会触发事件处理函数</p>
+			<div class="outer" @click="outer">
+				<!-- .self 实现只有点击当前元素时候，才会触发事件处理函数 -->
+				<div class="inner" @click.self="inner">
+					<button type="button" @click="btn">戳我</button>
+				</div>
+			</div>
+
+                <p>.once 只能触发一次事件处理函数</p>
+			<!-- .once 只能触发一次事件处理函数,注意是函数 -->
+			<a href="http://www.baidu.com" @click.prevent.once="link">点我去百度</a>
+
+
+
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: ''
+				},
+				methods: {
+					outer() {
+						console.log("灰色的盒子被点击了")
+					},
+					inner() {
+						console.log("粉色的盒子被点击了")
+					},
+					btn() {
+						console.log("button按钮被点击了")
+					},
+					link() {
+						console.log("a链接被点击了")
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

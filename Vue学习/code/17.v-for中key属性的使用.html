@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<label>
+					id:
+					<input type="text" v-model="id" />
+				</label>
+				<label>
+					name:
+					<input type="text" v-model="name"/>
+				</label>
+				<button type="button" @click="add">添加</button>
+			</div>
+			<!-- key值:是指定 唯一的 字符串或数字 类型 建议今后加上key值，用对象类型会报错 -->
+			<p v-for="user in list" :key='user.idw'>
+				<input type="checkbox"  />
+				{{user.id}}----
+				{{user.name}}
+			</p>
+		</div>
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					list:[
+						{id:1,name:'张飞'},
+						{id:2,name:'赵云'},
+						{id:3,name:'关羽'},
+						{id:4,name:'刘备'},
+						{id:5,name:'黄忠'},				
+					],
+					id:'',
+					name:'',
+				},
+				methods:{
+					add(){
+						var newUser={id:this.id,name:this.name};
+						// this.list.push(newUser)
+						 this.list.unshift(newUser)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

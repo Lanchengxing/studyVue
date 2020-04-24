@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+         <div id="app">
+         	<p v-for="item in list">数组的值:{{item}}</p>
+			<p v-for="(item,i) in list">数组的值:{{item}}----->数组的索引{{i}}</p>
+         </div>
+		 <script type="text/javascript">
+		 	var vm=new Vue({
+				el:'#app',
+				data:{
+					list:[1,222,55,15,54,8,84]
+				}
+			})
+		 </script>
+	</body>
+</html>

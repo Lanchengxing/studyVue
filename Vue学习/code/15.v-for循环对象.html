@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+         <div id="app">
+         	<p v-for="(val,key) in user">值:{{val}}---键:{{key}}</p>
+         	<p v-for="(val,key,i) in user">值:{{val}}---键:{{key}}--->索引:{{i}}</p>
+			
+         </div>
+		 <script type="text/javascript">
+		 	var vm=new Vue({
+				el:'#app',
+				data:{
+					user:{
+						id:666,
+						name:'阿强',
+						age:18
+					}
+				}
+			})
+		 </script>
+	</body>
+</html>

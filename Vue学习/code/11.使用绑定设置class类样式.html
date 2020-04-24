@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.pink {
+				color: pink;
+			}
+
+			.jiacu {
+				font-weight: bold;
+			}
+
+			.daxiao {
+				font-size: 30px;
+			}
+
+			.fengge {
+				font-style: italic;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p class="daxiao fengge ">好好学习，天天向上</p>
+			<p :class="['pink','daxiao']">好好学习，天天向上</p>
+			<p :class="['fengge','jiacu',flag?'pink':'']">好好学习，天天向上</p>
+			<p :class="['daxiao', 'fengge' , {'jiacu':flag}]">好好学习，天天向上</p>
+			<p :class="{'pink':false,daxiao:false,'fengge':true,jiacu:true}">好好学习，天天向上</p>
+			<p :class="classObj">好好学习，天天向上</p>
+		</div>
+
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					flag: 'true',
+					classObj: {
+						pink: true,
+						daxiao: true,
+						fengge: true,
+						jiacu: true
+					}
+				},
+				methods: {
+
+				}
+			})
+		</script>
+	</body>
+</html>

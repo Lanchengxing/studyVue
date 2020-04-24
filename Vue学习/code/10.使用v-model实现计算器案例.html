@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="num1" />
+			<select v-model="opt">
+				<option>+</option>
+				<option>-</option>
+				<option>*</option>
+				<option>/</option>
+			</select>
+			<input type="text" v-model="num2" />
+			<input type="button" value="=" @click="cal"/>
+			<input type="text" v-model="result" />
+		</div>
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					num1:'0',
+					opt:'+',
+					num2:'0',
+					result:'0'
+				},
+				methods:{
+					cal(){
+						switch(this.opt){
+							case "+" :
+							this.result=parseInt(this.num1)+parseInt(this.num2)
+							break;
+							case "-" :
+							this.result=parseInt(this.num1)-parseInt(this.num2)
+							break;
+							case "*" :
+							this.result=parseInt(this.num1)*parseInt(this.num2)
+							break;
+							case "/" :
+							this.result=parseInt(this.num1)/parseInt(this.num2)
+							break;
+						}
+						//投机取巧,尽量少用以下代码
+						// var codestr=parseInt(this.num1)+this.opt+parseInt(this.num2)
+					 //   this.result=eval(codestr)
+					},
+					
+				}
+			})
+		</script>
+	</body>
+</html>
